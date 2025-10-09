@@ -57,7 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </button>
 
             <div className="student-number" title="Student number">
-              {STUDENT_NUMBER}
+              Cloud Based Web Application 
             </div>
           </div>
 
@@ -76,7 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   role="tab"
                   aria-selected={activeTab === 'home'}
                 >
-                  Home (Tabs Generator)
+                  Home
                 </Link>
               </li>
 
@@ -147,7 +147,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <footer className="site-footer" role="contentinfo">
           <div>
-            © {new Date().getFullYear()} {STUDENT_NAME} | Student #{STUDENT_NUMBER} | {new Date().toLocaleDateString()}
+            © {new Date().getFullYear()} {STUDENT_NAME} | {STUDENT_NUMBER} | {new Date().toLocaleDateString()}
           </div>
         </footer>
       </body>

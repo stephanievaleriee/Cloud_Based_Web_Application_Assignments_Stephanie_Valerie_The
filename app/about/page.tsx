@@ -3,22 +3,57 @@
 import React from 'react';
 
 export default function AboutPage() {
-  const name = 'Stephanie Valerie The';
-  const studentNumber = '22586667'; // 
+  const STUDENT_NAME = 'Stephanie Valerie The';
+  const STUDENT_NUMBER = '22586667';
+
   return (
     <section className="container">
       <h1 className="page-title">About</h1>
-
-      <p><strong>Name:</strong> {name}</p>
-      <p><strong>Student Number:</strong> {studentNumber}</p>
-
-      <h2>Cloud Based Web Application - Assignment 1</h2>
       <p>
-        This is my assignment video regarding the fundamental aspects that requires my in depth explanation <code>Hello.html</code>.
+        Hello! I’m <strong>{STUDENT_NAME}</strong> (Student ID: {STUDENT_NUMBER}). This project was developed as part of the
+        assignment requirements to demonstrate UI design, dark/light mode, responsive navigation, and dynamic content
+        generation using Next.js and React.
       </p>
 
-      <div className="video-placeholder" role="region" aria-label="Video demonstration">
-        <p>Video demonstration goes here (record and embed your screen + face + audio when you submit).</p>
+      <div
+        style={{
+          marginTop: '20px',
+          border: '1px solid #ccc',
+          borderRadius: '8px',
+          padding: '16px',
+          background: 'var(--background)',
+        }}
+      >
+        <h3>Project Demonstration Video</h3>
+        <p>You can watch my presentation video below:</p>
+
+        {/* Responsive YouTube Embed */}
+        <div
+          style={{
+            position: 'relative',
+            paddingBottom: '56.25%', // 16:9 aspect ratio
+            height: 0,
+            overflow: 'hidden',
+            borderRadius: '8px',
+            marginTop: '12px',
+          }}
+        >
+          <iframe
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ" // replace this with your real YouTube link later
+            title="Project Presentation Video"
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              border: 'none',
+              borderRadius: '8px',
+            }}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
       </div>
     </section>
   );

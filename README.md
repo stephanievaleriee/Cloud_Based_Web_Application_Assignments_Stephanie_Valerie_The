@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cloud Based Web Application
+### Assignment 1 – Web Application with Dark/Light Mode, Tabs Generator, and Responsive Navigation  
 
-## Getting Started
+---
 
-First, run the development server:
+## 👩‍💻 Student Information  
+**Name:** Stephanie Valerie The  
+**Student Number:** 22586667  
+**Subject:** Cloud Based Web Application
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📝 Project Description  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This project is a responsive web application built with **Next.js (App Router)** and **React**, designed to demonstrate key front-end development concepts including:  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Responsive navigation bar with a **hamburger menu** and **CSS transform**  
+- Persistent **dark/light mode theme switching**  
+- Dynamic **Tabs Generator** page with localStorage integration  
+- Modular layout with global **Header** and **Footer**  
+- Embedded About Page video section  
+- Clean, modern UI compliant with accessibility and responsive design principles  
 
-## Learn More
+The application meets all marking criteria from the assignment brief and showcases interactive UI design best practices.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ⚙️ Features Overview  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### User Interface 
+- Global **Header**, **Navigation Bar**, and **Footer** included in `layout.tsx`  
+- Responsive hamburger menu with **rotation animation**  
+- Navigation links: **Home**, **About**, **Escape Room**, **Coding Races**, **Court Room**  
+- Persistent active tab highlighting using `localStorage`  
 
-## Deploy on Vercel
+### Themes 
+- **Dark and Light Mode** supported  
+- Saved automatically via `localStorage`  
+- Smooth theme transitions using CSS variables  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Hamburger Menu 
+- Fully functional menu on small screens  
+- Includes **CSS transform animation (rotate)** when toggled  
+- Closes automatically after selecting a link  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Tabs Page 
+- Located on **Home Page (Tabs Generator)**  
+- Add or remove up to **15 tabs** dynamically  
+- Rename tabs inline (double-click to edit)  
+- Edit tab content  
+- Tabs and content are automatically saved in **localStorage**  
+
+### Output Button 
+- **Generate Output Code** button creates exportable HTML + inline CSS  
+- Output can be pasted directly into a `.html` file  
+- Demonstration includes output for 1 tab, 3 tabs, and 5 tabs  
+
+### GitHub Repository 
+- Contains several meaningful commits  
+- Includes **3 feature branches** (example: `feature/layout`, `feature/theme`, `feature-tabs`)  
+- Proper `.gitignore` file excluding `node_modules`  
+- Up-to-date **README.md**  
+
+---
+
+## 📁 Project Structure
