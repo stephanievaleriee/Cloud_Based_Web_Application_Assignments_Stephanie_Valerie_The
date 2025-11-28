@@ -118,7 +118,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
               <li role="presentation">
                 <Link
-                  href="/court-room"
+                  href="/courtRoom"
                   onClick={() => navigateTo('court')}
                   className={`nav-link ${activeTab === 'court' ? 'active' : ''}`}
                   role="tab"

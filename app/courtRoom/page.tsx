@@ -1,30 +1,85 @@
-'use client';
+"use client";
 
-import React from 'react';
+import { useState, useEffect } from "react";
+import OverlayPanel from "./components/overlayPanel";
+import Timer from "./components/timer";
+import TaskManager from "./components/taskManager";
+import DistractionPopup from "./components/distractionPopup";
+import CourtroomPunishment from "./components/courtroomPunishment";
 
 export default function CourtRoomPage() {
-  return (
-    <section className="container">
-      <h1 className="page-title">Court Room</h1>
-      <p>
-        Welcome to the <strong>Court Room</strong> page! This area will allow users to debate, justify code decisions,
-        and evaluate reasoning against different solutions.
-      </p>
+  const [timerStarted, setTimerStarted] = useState(false);
+  const [timerFinished, setTimerFinished] = useState(false);
+  const [popup, setPopup] = useState("");
+  const [punishment, setPunishment] = useState("");
 
+  // RANDOM DISTRACTION POPUPS
+  useEffect(() => {
+    if (!timerStarted) return;
+
+    const messages = [
+      "Boss: Are you done with sprint 1?",
+      "Family: Can you pick up the kids?",
+      "Agile: Fix the title color to red!",
+      "System: Meeting in 10 minutes!"
+    ];
+
+    const interval = setInterval(() => {
+      setPopup(messages[Math.floor(Math.random() * messages.length)]);
+    }, Math.random() * 10000 + 20000);
+
+    return () => clearInterval(interval);
+  }, [timerStarted]);
+
+  // WHEN PUNISHMENT TRIGGERS – TAKE OVER ENTIRE SCREEN
+  if (punishment) {
+    return (
+      <CourtroomPunishment
+        type={punishment}
+        onReset={() => window.location.reload()}
+      />
+    );
+  }
+
+  return (
+    <>
+      {/* FULL PAGE BACKGROUND */}
       <div
         style={{
-          marginTop: '20px',
-          border: '1px solid #ccc',
-          padding: '16px',
-          borderRadius: '8px',
-          background: 'var(--background)',
+          backgroundImage: "url('/workdesk.jpeg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          minHeight: "100vh",
+          width: "100%",
+          padding: "40px 20px",
         }}
       >
-        <h3>Coming Soon</h3>
-        <p>
-          Future plans include mock trial-style discussions, peer reviews, and code justification rounds.
-        </p>
+        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+          <OverlayPanel>
+            <Timer
+              onStart={() => setTimerStarted(true)}
+              onFinish={() => setTimerFinished(true)}
+            />
+
+            {timerStarted && (
+              <div style={{ marginTop: "20px" }}>
+                <TaskManager
+                  timerFinished={timerFinished}
+                  onPunish={(type: string) => setPunishment(type)}
+                />
+              </div>
+            )}
+          </OverlayPanel>
+        </div>
       </div>
-    </section>
+
+      {popup && (
+        <DistractionPopup
+          message={popup}
+          onClose={() => setPopup("")}
+        />
+      )}
+    </>
   );
 }
