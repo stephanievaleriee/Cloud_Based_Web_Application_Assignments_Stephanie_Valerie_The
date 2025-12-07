@@ -8,6 +8,7 @@ import DistractionPopup from "./components/distractionPopup";
 import CourtroomPunishment from "./components/courtroomPunishment";
 
 export default function CourtRoomPage() {
+  console.log("⚖️ Court Room page loaded");
   const [timerStarted, setTimerStarted] = useState(false);
   const [timerFinished, setTimerFinished] = useState(false);
   const [remainingSeconds, setRemainingSeconds] = useState(0);
