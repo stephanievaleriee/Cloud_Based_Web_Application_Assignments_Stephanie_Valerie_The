@@ -1,0 +1,24 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model SessionLog {
+  id         Int      @id @default(autoincrement())
+  sessionId  String
+  event      String
+  details    String?
+  createdAt  DateTime @default(now())
+}
+
+model SessionProgress {
+  id             Int      @id @default(autoincrement())
+  sessionId      String   @unique
+  timeRemaining  Int
+  stage          Int
+  updatedAt      DateTime @updatedAt
+}

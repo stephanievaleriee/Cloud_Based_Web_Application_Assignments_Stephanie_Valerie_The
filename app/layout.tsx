@@ -127,6 +127,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   Court Room
                 </Link>
               </li>
+
+              {/* ⭐ ADDED */}
+              <li role="presentation">
+                <Link
+                  href="/backlog"
+                  onClick={() => navigateTo('backlog')}
+                  className={`nav-link ${activeTab === 'backlog' ? 'active' : ''}`}
+                  role="tab"
+                  aria-selected={activeTab === 'backlog'}
+                >
+                  Backlog
+                </Link>
+              </li>
+              {/* END ADDED */}
             </ul>
           </nav>
 
@@ -147,7 +161,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <footer className="site-footer" role="contentinfo">
           <div>
-            © {new Date().getFullYear()} {STUDENT_NAME} | {STUDENT_NUMBER} | {new Date().toLocaleDateString()}
+            © {new Date().getFullYear()} {STUDENT_NAME} | {STUDENT_NUMBER} |{" "}
+            {new Date().toLocaleDateString()}
           </div>
         </footer>
       </body>

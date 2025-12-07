@@ -14,7 +14,6 @@ export default function CourtRoomPage() {
   const [popup, setPopup] = useState("");
   const [punishment, setPunishment] = useState("");
 
-  // DISTRACTION POPUPS
   useEffect(() => {
     if (!timerStarted) return;
 
@@ -31,6 +30,20 @@ export default function CourtRoomPage() {
 
     return () => clearInterval(interval);
   }, [timerStarted]);
+
+  async function saveProgress() {
+    await fetch("/api/session-progress", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        sessionId: "test-session-1",
+        timeRemaining: remainingSeconds,
+        stage: 1,
+      }),
+    });
+
+    alert("Progress saved!");
+  }
 
   if (punishment) {
     return (
@@ -70,7 +83,17 @@ export default function CourtRoomPage() {
             />
           )}
 
-          {/* ⭐ NEW: Notification INSIDE white box */}
+          {timerStarted && (
+            <div style={{ marginTop: "20px", textAlign: "center" }}>
+              <button
+                onClick={saveProgress}
+                className="px-4 py-2 bg-blue-600 text-white rounded"
+              >
+                Save Progress
+              </button>
+            </div>
+          )}
+
           {timerStarted && popup && (
             <div style={{ marginTop: "20px" }}>
               <DistractionPopup message={popup} onClose={() => setPopup("")} />
