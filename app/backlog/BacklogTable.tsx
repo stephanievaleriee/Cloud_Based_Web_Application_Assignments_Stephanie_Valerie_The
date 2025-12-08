@@ -51,7 +51,9 @@ export default function BacklogTable({ logs }: { logs: Log[] }) {
                     headers: {
                       "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({ newDetails }),
+                    body: JSON.stringify({
+                      details: newDetails, 
+                    }),
                   });
 
                   if (!res.ok) {
